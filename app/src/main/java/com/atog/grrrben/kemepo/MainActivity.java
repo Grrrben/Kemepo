@@ -8,15 +8,30 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import com.atog.grrrben.kemepo.classes.Product;
+import com.atog.grrrben.kemepo.helpers.ProductListAdapter;
+import com.atog.grrrben.kemepo.helpers.SQLiteHandler;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        super.onCreate(savedInstanceState);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        SQLiteHandler db = new SQLiteHandler(getApplicationContext());
+
+        List<Product> products = db.getProducts();
+        ProductListAdapter productListAdapter = new ProductListAdapter(MainActivity.this, products);
+        // Attach the adapter to a ListView
+        ListView productListView = (ListView) findViewById(R.id.product_list);
+        productListView.setAdapter(productListAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
