@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.atog.grrrben.kemepo.R;
@@ -14,10 +15,9 @@ import com.atog.grrrben.kemepo.classes.Product;
 import java.util.List;
 
 /**
- * Created by Gerben on 21-Jun-15.
- * Dit is de view offer_search_result_item voor de lijst met daghappen
+ * The is the adapter for the product list view
+ * - active (switch)
  * - title
- * - description
  * - price
  */
 public class ProductListAdapter extends ArrayAdapter<Product> {
@@ -42,8 +42,13 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         }
 
         // Lookup view for data population
+        Switch active = (Switch) convertView.findViewById(R.id.switch1);
         TextView name = (TextView) convertView.findViewById(R.id.product_name);
+        TextView price = (TextView) convertView.findViewById(R.id.product_price);
+
         name.setText(product.name);
+        price.setText(Double.toString(product.price));
+        active.setChecked(product.active);
 
         // Return the completed view to render on screen
         return convertView;

@@ -96,16 +96,19 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         p1.name = "Product One";
         p1.ean = 87115678910L;
         p1.price = 10.95;
+        p1.active = true;
 
         Product p2 = new Product();
         p2.name = "Secondo";
         p2.ean = 87115600002L;
         p2.price = 1.95;
+        p2.active = false;
 
         Product p3 = new Product();
         p3.name = "La Trappe Triple";
         p3.ean = 87115670003L;
         p3.price = 5.00;
+        p3.active = true;
 
         products.add(p1);
         products.add(p2);

@@ -11,4 +11,5 @@ public class Product implements Serializable {
     public Long ean;
     public Double price;
     public String url;
+    public Boolean active;
 }

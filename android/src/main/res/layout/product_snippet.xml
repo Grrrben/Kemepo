@@ -3,22 +3,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <Switch
-        android:text="Switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:checked="true"
         android:id="@+id/switch1" />
 
     <TextView
         android:id="@+id/product_name"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_gravity="left"
         style="@style/snippet"
         />
 
     <TextView
         android:id="@+id/product_price"
+        android:layout_width="wrap_content"
+        android:layout_gravity="right"
         style="@style/snippet"
         />
 
